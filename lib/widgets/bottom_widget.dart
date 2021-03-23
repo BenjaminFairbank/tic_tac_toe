@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tic_tac_toe/models/game.dart';
-
+import 'package:tic_tac_toe/utilities/constants.dart';
 
 class BottomWidget extends StatelessWidget {
 
@@ -17,25 +17,12 @@ class BottomWidget extends StatelessWidget {
           resetGame();
         },
         child: Text('New Game'),
-        style: ButtonStyle(
-          padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(18.0)),
-          backgroundColor:
-          MaterialStateProperty.all<Color>(Colors.lightBlueAccent),
-          foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-          textStyle: MaterialStateProperty.all<TextStyle>(TextStyle(
-            fontSize: 25.0,
-            fontWeight: FontWeight.w600,
-          )),
-        ),
+        style: kNewGameButtonStyle
       );
     } else {
       return Text(
         "Team ${game.turn}'s turn",
-        style: TextStyle(
-          color: Colors.blueGrey,
-          fontSize: 50.0,
-          fontWeight: FontWeight.w500,
-        ),
+        style: kGameScreenTextStyle
       );
     }
   }
