@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tic_tac_toe/utilities/constants.dart';
 import 'game_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -46,16 +47,7 @@ class WelcomeScreen extends StatelessWidget {
                 Navigator.pushNamed(context, GameScreen.id);
               },
               child: Text('New Game'),
-              style: ButtonStyle(
-                padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.all(25.0)),
-                backgroundColor:
-                    MaterialStateProperty.all<Color>(Colors.lightBlueAccent),
-                foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-                textStyle: MaterialStateProperty.all<TextStyle>(TextStyle(
-                  fontSize: 25.0,
-                  fontWeight: FontWeight.w600,
-                )),
-              ),
+              style: kNewGameButtonStyle
             ),
           ],
         ),

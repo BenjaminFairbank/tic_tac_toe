@@ -1,4 +1,3 @@
-
 class Game {
 
   List<String> _tiles = ['     ','     ','     ','     ','     ','     ','     ','     ','     ',];
@@ -29,27 +28,22 @@ class Game {
       return count == 9;
     }
 
-    if ((_tiles[0] == 'X' && _tiles[1] == 'X' && _tiles[2] == 'X')
-        || (_tiles[3] == 'X' && _tiles[4] == 'X' && _tiles[5] == 'X')
-        || (_tiles[6] == 'X' && _tiles[7] == 'X' && _tiles[8] == 'X')
-        || (_tiles[0] == 'X' && _tiles[3] == 'X' && _tiles[6] == 'X')
-        || (_tiles[1] == 'X' && _tiles[4] == 'X' && _tiles[7] == 'X')
-        || (_tiles[2] == 'X' && _tiles[5] == 'X' && _tiles[8] == 'X')
-        || (_tiles[0] == 'X' && _tiles[4] == 'X' && _tiles[8] == 'X')
-        || (_tiles[2] == 'X' && _tiles[4] == 'X' && _tiles[6] == 'X')) {
-      _winner = 'X';
-      return true;
-    } else if ((_tiles[0] == 'O' && _tiles[1] == 'O' && _tiles[2] == 'O')
-        || (_tiles[3] == 'O' && _tiles[4] == 'O' && _tiles[5] == 'O')
-        || (_tiles[6] == 'O' && _tiles[7] == 'O' && _tiles[8] == 'O')
-        || (_tiles[0] == 'O' && _tiles[3] == 'O' && _tiles[6] == 'O')
-        || (_tiles[1] == 'O' && _tiles[4] == 'O' && _tiles[7] == 'O')
-        || (_tiles[2] == 'O' && _tiles[5] == 'O' && _tiles[8] == 'O')
-        || (_tiles[0] == 'O' && _tiles[4] == 'O' && _tiles[8] == 'O')
-        || (_tiles[2] == 'O' && _tiles[4] == 'O' && _tiles[6] == 'O')) {
-      _winner = 'O';
-      return true;
-    } else if (gameOverCheck()) {
+    List<String> options = ['X', 'O'];
+
+    for (String option in options) {
+      if ((_tiles[0] == option && _tiles[1] == option && _tiles[2] == option)
+          || (_tiles[3] == option && _tiles[4] == option && _tiles[5] == option)
+          || (_tiles[6] == option && _tiles[7] == option && _tiles[8] == option)
+          || (_tiles[0] == option && _tiles[3] == option && _tiles[6] == option)
+          || (_tiles[1] == option && _tiles[4] == option && _tiles[7] == option)
+          || (_tiles[2] == option && _tiles[5] == option && _tiles[8] == option)
+          || (_tiles[0] == option && _tiles[4] == option && _tiles[8] == option)
+          || (_tiles[2] == option && _tiles[4] == option && _tiles[6] == option)) {
+        _winner = option;
+        return true;
+      }
+    }
+    if (gameOverCheck()) {
       return true;
     }
     return false;

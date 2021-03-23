@@ -34,11 +34,7 @@ class _GameScreenState extends State<GameScreen> {
             children: <Widget>[
               Text(
                 game.checkCompletion() && game.winner != '' ? 'Team ${game.winner} wins!' : '',
-                style: TextStyle(
-                  color: Colors.blueGrey,
-                  fontSize: 50.0,
-                  fontWeight: FontWeight.w500,
-                ),
+                style: kGameScreenTextStyle
               ),
               AspectRatio(
                 aspectRatio: 1,
