@@ -1,27 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:tic_tac_toe/models/game.dart';
+import 'package:tic_tac_toe/models/game_data.dart';
 import 'package:tic_tac_toe/utilities/constants.dart';
+import 'package:provider/provider.dart';
 
 class BottomWidget extends StatelessWidget {
 
-  final Game game;
-  final Function resetGame;
-
-  BottomWidget(this.game, this.resetGame);
-
   @override
   Widget build(BuildContext context) {
-    if (game.checkCompletion()) {
+    if (Provider.of<GameData>(context).game.checkCompletion()) {
       return TextButton(
         onPressed: () {
-          resetGame();
+          Provider.of<GameData>(context, listen: false).resetGame();
         },
         child: Text('New Game'),
         style: kNewGameButtonStyle
       );
     } else {
       return Text(
-        "Team ${game.turn}'s turn",
+        "Team ${Provider.of<GameData>(context).game.turn}'s turn",
         style: kGameScreenTextStyle
       );
     }

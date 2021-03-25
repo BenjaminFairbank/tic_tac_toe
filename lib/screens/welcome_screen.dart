@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:tic_tac_toe/utilities/constants.dart';
 import 'game_screen.dart';
+import 'package:provider/provider.dart';
+import 'package:tic_tac_toe/models/game_data.dart';
 
 class WelcomeScreen extends StatelessWidget {
   static const String id = 'welcome_screen';
@@ -44,6 +46,7 @@ class WelcomeScreen extends StatelessWidget {
             ),
             TextButton(
               onPressed: () {
+                Provider.of<GameData>(context, listen: false).resetGame();
                 Navigator.pushNamed(context, GameScreen.id);
               },
               child: Text('New Game'),
